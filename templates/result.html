@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Results - Edit Distance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div id="flashMessage" class="flash-message" style="display:none;">Initializing the table...</div>
+
+    <header>
+        <h1>Results</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Input Strings</h2>
+            <p><strong>String A:</strong> {{ s }}</p>
+            <p><strong>String B:</strong> {{ t }}</p>
+        </section>
+
+        <section>
+            <h2>Computed Edit Distance</h2>
+            <p>The edit distance is: <strong>{{ dist }}</strong></p>
+        </section>
+
+        <section>
+            <h2>Transformations Needed</h2>
+            {% if operations %}
+                <ul>
+                {% for op in operations %}
+                    <li>{{ op }}</li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>No operations needed, the strings are identical.</p>
+            {% endif %}
+        </section>
+
+        <!-- <section>
+            <h2>DP Table Visualization</h2>
+            <div class="dp-container">
+                {{ dp_html|safe }}
+            </div>
+        </section> -->
+
+        <h2>DP Table Animation </h2>
+        <div>
+            <button id="startBtn">Start</button>
+            <button id="pauseResumeBtn" disabled>Pause</button>
+            <button id="completeBtn" disabled>Complete</button>
+        </div>
+
+        <div class="dp-container">
+            <table id="dpTable">
+            <!-- We'll construct the table with JS. Initially empty. -->
+            </table>
+        </div>
+        <div id="tooltip" class="tooltip" style="display:none;"></div>
+
+        <script>
+            var dpData = {{ dp_json|safe }};
+            var pathCells = {{ path_cells_json|safe }};
+            var sLen = {{ s|length }};
+            var tLen = {{ t|length }};
+            var sStr = "{{ s }}";
+            var tStr = "{{ t }}";
+        </script>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+        
+
+        <a href="{{ url_for('index') }}">Compute Another</a>
+    </main>
+    <footer>
+        <p> Built with simplicity in mind.</p>
+    </footer>
+</body>
+</html>

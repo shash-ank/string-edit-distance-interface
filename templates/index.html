@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Edit Distance Calculator</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<h1>Edit Distance Calculator</h1>
+<h2> Finds the minimum distance to convert the source string to target string.</h2>
+<form action="{{ url_for('compute') }}" method="post">
+    <label for="stringA">Source String :</label>
+    <input type="text" id="stringA" name="stringA" required>
+
+    <label for="stringB">Target String :</label>
+    <input type="text" id="stringB" name="stringB" required>
+
+    <button type="submit">Compute</button>
+</form>
+</body>
+</html>

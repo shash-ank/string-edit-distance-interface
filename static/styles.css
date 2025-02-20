@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+header, footer {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+main {
+    max-width: 600px;
+    margin: auto;
+}
+
+label {
+  
+    font-weight: bold;
+    margin-top: 15px;
+    justify-self: center;
+    align-self: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+input[type="text"] {
+
+    width: 50%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    justify-self: center;
+    align-self: center;
+}
+
+button {
+    margin-top: 20px;
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    justify-self: center;
+    align-self: center;
+}
+
+.dp-table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dp-table th, .dp-table td {
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+table {
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.dp-container {
+    overflow-x: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 40px;
+}
+td, th {
+    border: 1px solid #ccc;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+.highlight {
+    color: red;
+    font-weight: bold;
+}
+/* Highlighting active calculation cell */
+.active-cell {
+    background-color: #ffffcc; /* light yellow for current focus */
+}
+
+/* Highlighting contributing neighbor cells */
+.contributing-cell {
+    background-color: #e0f7fa; /* light cyan to show involvement */
+}
+
+/* Tooltip styling */
+.tooltip {
+    position: absolute;
+    background: #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    pointer-events: none;
+    z-index: 999;
+    max-width: 200px;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+    top: 0; /* arrow at the top of the tooltip */
+    left: 20px;
+    transform: translateY(-100%);
+}
+
+/* Operation colors for traceback (optional) */
+.traceback-insert {
+    background-color: #c8e6c9; /* light green */
+}
+.traceback-delete {
+    background-color: #ffcdd2; /* light red */
+}
+.traceback-match {
+    background-color: #d1c4e9; /* light purple */
+}
+
+.flash-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    z-index: 1000;
+}
