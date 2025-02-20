@@ -8,13 +8,14 @@
 </head>
 <body>
 <h1>Edit Distance Calculator</h1>
-<h2> Finds the minimum distance to convert the source string to target string.</h2>
+<h2>Finds the minimum distance to convert the source string to target string.</h2>
+<p>This tool calculates the edit distance between two strings, which is the minimum number of operations (insertions, deletions, or substitutions) required to transform one string into another.</p>
 <form action="{{ url_for('compute') }}" method="post">
-    <label for="stringA">Source String :</label>
-    <input type="text" id="stringA" name="stringA" required maxlength="100">
+    <label for="stringA">Source String:</label>
+    <input type="text" id="stringA" name="stringA" required maxlength="100" placeholder="Enter the source string">
 
-    <label for="stringB">Target String :</label>
-    <input type="text" id="stringB" name="stringB" required maxlength="100">
+    <label for="stringB">Target String:</label>
+    <input type="text" id="stringB" name="stringB" required maxlength="100" placeholder="Enter the target string">
 
     <button type="submit">Compute</button>
 </form>

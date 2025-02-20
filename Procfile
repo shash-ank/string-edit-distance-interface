@@ -1,3 +1,3 @@
-web: python [app.py][def]
+web: python [app.py]["def]
 
 [def]: http://_vscodecontentref_/0

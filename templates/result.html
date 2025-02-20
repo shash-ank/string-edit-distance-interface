@@ -16,17 +16,19 @@
     <main>
         <section>
             <h2>Input Strings</h2>
-            <p><strong>String A:</strong> {{ s }}</p>
-            <p><strong>String B:</strong> {{ t }}</p>
+            <p><strong>Source String:</strong> {{ s }}</p>
+            <p><strong>Target String:</strong> {{ t }}</p>
         </section>
 
         <section>
             <h2>Computed Edit Distance</h2>
             <p>The edit distance is: <strong>{{ dist }}</strong></p>
+            <p>This is the minimum number of operations required to transform the source string into the target string.</p>
         </section>
 
         <section>
             <h2>Transformations Needed</h2>
+            <p>The following operations are needed to transform the source string into the target string:</p>
             {% if operations %}
                 <ul>
                 {% for op in operations %}
@@ -38,14 +40,8 @@
             {% endif %}
         </section>
 
-        <!-- <section>
-            <h2>DP Table Visualization</h2>
-            <div class="dp-container">
-                {{ dp_html|safe }}
-            </div>
-        </section> -->
-
-        <h2>DP Table Animation </h2>
+        <h2>DP Table Animation</h2>
+        <p>The table below shows the dynamic programming table used to compute the edit distance. You can see the step-by-step calculation by clicking the buttons below.</p>
         <div>
             <button id="startBtn">Start</button>
             <button id="pauseResumeBtn" disabled>Pause</button>
@@ -69,11 +65,10 @@
         </script>
         <script src="{{ url_for('static', filename='script.js') }}"></script>
         
-
         <a href="{{ url_for('index') }}">Compute Another</a>
     </main>
     <footer>
-        <p> Built with simplicity in mind.</p>
+        <p>Built with simplicity in mind.</p>
     </footer>
 </body>
 </html>
