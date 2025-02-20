@@ -11,10 +11,10 @@
 <h2> Finds the minimum distance to convert the source string to target string.</h2>
 <form action="{{ url_for('compute') }}" method="post">
     <label for="stringA">Source String :</label>
-    <input type="text" id="stringA" name="stringA" required>
+    <input type="text" id="stringA" name="stringA" required maxlength="100">
 
     <label for="stringB">Target String :</label>
-    <input type="text" id="stringB" name="stringB" required>
+    <input type="text" id="stringB" name="stringB" required maxlength="100">
 
     <button type="submit">Compute</button>
 </form>

@@ -7,6 +7,8 @@ MATCH = 0
 INSERT = 1
 DELETE = 2
 
+MAX_LENGTH = 100  # Maximum allowed length for input strings
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -18,6 +20,9 @@ def compute():
 
     if not s or not t:
         return "Please provide both strings.", 400
+
+    if len(s) > MAX_LENGTH or len(t) > MAX_LENGTH:
+        return f"Strings must be at most {MAX_LENGTH} characters long.", 400
 
     dist, dp, parent = compute_edit_distance_with_parents(s, t)
     dp_html = dp_table_to_html(s, t, dp)
@@ -93,6 +98,7 @@ def reconstruct_path(s, t, parent):
     path_cells.reverse()
     operations.reverse()
     return operations, path_cells
+
 def dp_table_to_html(s, t, dp):
     # Convert the DP table to an HTML table for display.
     
